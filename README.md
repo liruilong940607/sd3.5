@@ -1,3 +1,13 @@
+# Export Text Condition Embedding
+
+Just set `SAVE_PROMPT_EMBED=1` before running `sd3_infer.py`. The text embedding will be dumped into a file `prompt_embedding.pt`.
+
+e.g.,
+```
+SAVE_PROMPT_EMBED=1 python3 sd3_infer.py --prompt "A high-resolution photo" --width 256 --height 256
+```
+
+----
 # Stable Diffusion 3.5
 
 Inference-only tiny reference implementation of SD3.5 and SD3 - everything you need for simple inference using SD3.5/SD3, as well as the SD3.5 Large ControlNets, excluding the weights files.

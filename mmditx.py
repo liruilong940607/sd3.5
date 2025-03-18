@@ -908,6 +908,11 @@ class MMDiTX(nn.Module):
 
         context = self.context_embedder(context)
 
+        import os
+        SAVE_PROMPT_EMBEDDING = os.environ.get("SAVE_PROMPT_EMBED", "0") == "1"
+        if SAVE_PROMPT_EMBEDDING:
+            torch.save({"y": y, "cntext": context}, "prompt_embedding.pt")
+
         x = self.forward_core_with_concat(x, c, context, skip_layers, controlnet_hidden_states)
 
         x = self.unpatchify(x, hw=hw)  # (N, out_channels, H, W)
